@@ -94,6 +94,11 @@ storage:
   # If the file exists, peertube will serve it
   # If not, peertube will fallback to the default fil
   client_overrides: 'storage/client-overrides/'
+  cdn: true
+s3:
+  endpoint: '' # DigitalOcean Spaces example 'https://<spaces name>.<region name>.digitaloceanspaces.com'
+  key_id: ''
+  key_secret: ''
 
 log:
   level: 'info' # debug/info/warning/error

@@ -2063,13 +2063,13 @@ export class VideoModel extends Model {
 
   getVideoFileUrl (videoFile: MVideoFile, baseUrlHttp: string) {
     // If CDN is configured then get a presigned URL.
-    if (CONFIG.S3) return this.getPresignedVideoFileUrl(videoFile, baseUrlHttp)
+    if (CONFIG.S3.ENDPOINT !== '') return this.getPresignedVideoFileUrl(videoFile, baseUrlHttp)
     else return baseUrlHttp + STATIC_PATHS.WEBSEED + getVideoFilename(this, videoFile)
   }
 
   getPresignedVideoFileUrl (videoFile: MVideoFile, baseUrlHttp: string) {
-    let opts = {
-      host: CONFIG.S3.HOST,
+    const opts = {
+      host: new URL(CONFIG.S3.ENDPOINT).hostname,
       path: '/videos/' + getVideoFilename(this, videoFile),
       service: 's3',
       signQuery: true // query must be signed since redirects are used

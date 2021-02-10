@@ -73,7 +73,7 @@ const CONFIG = {
     CLIENT_OVERRIDES_DIR: buildPath(config.get<string>('storage.client_overrides'))
   },
   S3: {
-    HOST: config.get<string>('s3.host'),
+    ENDPOINT: config.get<string>('s3.endpoint'),
     KEY_ID: config.get<string>('s3.key_id'),
     KEY_SECRET: config.get<string>('s3.key_secret')
   },
