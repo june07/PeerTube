@@ -108,7 +108,8 @@ trending:
     interval_days: 7 # Compute trending videos for the last x days
     algorithms:
       enabled:
-        - 'hot' # adaptation of the Reddit 'Hot' algorithm
+        - 'best' # adaptation of Reddit's 'Best' algorithm (Hot minus History)
+        - 'hot' # adaptation of Reddit's 'Hot' algorithm
         - 'most-viewed' # default, used initially by PeerTube as the trending page
         - 'most-liked'
       default: 'most-viewed'
@@ -243,7 +244,10 @@ transcoding:
   # If a user uploads an audio file, PeerTube will create a video by merging the preview file and the audio file
   allow_audio_files: true
 
+  # Amount of threads used by ffmpeg for 1 transcoding job
   threads: 1
+  # Amount of transcoding jobs to execute in parallel
+  concurrency: 1
 
   # Choose the transcoding profile
   # New profiles can be added by plugins
@@ -322,6 +326,9 @@ live:
 import:
   # Add ability for your users to import remote videos (from YouTube, torrent...)
   videos:
+    # Amount of import jobs to execute in parallel
+    concurrency: 1
+
     http: # Classic HTTP or all sites supported by youtube-dl https://rg3.github.io/youtube-dl/supportedsites.html
       enabled: false
 

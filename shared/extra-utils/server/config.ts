@@ -112,6 +112,7 @@ function updateCustomSubConfig (url: string, token: string, newConfig: DeepParti
       allowAdditionalExtensions: true,
       allowAudioFiles: true,
       threads: 1,
+      concurrency: 3,
       profile: 'default',
       resolutions: {
         '0p': false,
@@ -153,6 +154,7 @@ function updateCustomSubConfig (url: string, token: string, newConfig: DeepParti
     },
     import: {
       videos: {
+        concurrency: 3,
         http: {
           enabled: false
         },
@@ -164,7 +166,7 @@ function updateCustomSubConfig (url: string, token: string, newConfig: DeepParti
     trending: {
       videos: {
         algorithms: {
-          enabled: [ 'hot', 'most-viewed', 'most-liked' ],
+          enabled: [ 'best', 'hot', 'most-viewed', 'most-liked' ],
           default: 'hot'
         }
       }

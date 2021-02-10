@@ -86,6 +86,7 @@ describe('Test config API validators', function () {
       enabled: true,
       allowAdditionalExtensions: true,
       allowAudioFiles: true,
+      concurrency: 1,
       threads: 1,
       profile: 'vod_profile',
       resolutions: {
@@ -130,6 +131,7 @@ describe('Test config API validators', function () {
     },
     import: {
       videos: {
+        concurrency: 1,
         http: {
           enabled: false
         },
@@ -141,7 +143,7 @@ describe('Test config API validators', function () {
     trending: {
       videos: {
         algorithms: {
-          enabled: [ 'hot', 'most-viewed', 'most-liked' ],
+          enabled: [ 'best', 'hot', 'most-viewed', 'most-liked' ],
           default: 'most-viewed'
         }
       }

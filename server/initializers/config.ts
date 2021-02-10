@@ -193,6 +193,7 @@ const CONFIG = {
     get ALLOW_ADDITIONAL_EXTENSIONS () { return config.get<boolean>('transcoding.allow_additional_extensions') },
     get ALLOW_AUDIO_FILES () { return config.get<boolean>('transcoding.allow_audio_files') },
     get THREADS () { return config.get<number>('transcoding.threads') },
+    get CONCURRENCY () { return config.get<number>('transcoding.concurrency') },
     get PROFILE () { return config.get<string>('transcoding.profile') },
     RESOLUTIONS: {
       get '0p' () { return config.get<boolean>('transcoding.resolutions.0p') },
@@ -242,6 +243,8 @@ const CONFIG = {
   },
   IMPORT: {
     VIDEOS: {
+      get CONCURRENCY () { return config.get<number>('import.videos.concurrency') },
+
       HTTP: {
         get ENABLED () { return config.get<boolean>('import.videos.http.enabled') },
         get FORCE_IPV4 () { return config.get<boolean>('import.videos.http.force_ipv4') },
@@ -341,8 +344,8 @@ const CONFIG = {
   },
   SEARCH: {
     REMOTE_URI: {
-      USERS: config.get<boolean>('search.remote_uri.users'),
-      ANONYMOUS: config.get<boolean>('search.remote_uri.anonymous')
+      get USERS () { return config.get<boolean>('search.remote_uri.users') },
+      get ANONYMOUS () { return config.get<boolean>('search.remote_uri.anonymous') }
     },
     SEARCH_INDEX: {
       get ENABLED () { return config.get<boolean>('search.search_index.enabled') },
